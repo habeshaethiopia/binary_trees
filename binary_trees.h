@@ -2,6 +2,7 @@
 #define BIN
 #include <stdio.h>
 #include <stdlib.h>
+
 /**
  * struct binary_tree_s - Binary tree node
  *
@@ -17,8 +18,13 @@ struct binary_tree_s
 	struct binary_tree_s *left;
 	struct binary_tree_s *right;
 };
-
 typedef struct binary_tree_s binary_tree_t;
+
+
+
+
+
 void binary_tree_print(const binary_tree_t *);
+binary_tree_t *binary_tree_insert_left(binary_tree_t *parent, int value);
 binary_tree_t *binary_tree_node(binary_tree_t *parent, int value);
 #endif
