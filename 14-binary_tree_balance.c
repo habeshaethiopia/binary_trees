@@ -19,7 +19,7 @@ int size(const binary_tree_t *tree)
  * binary_tree_balance - check if it is balanced
  *
  * @tree: tree root
- * Return: 0 or 1
+ * Return: the balanced factor
  */
 int binary_tree_balance(const binary_tree_t *tree)
 {
@@ -29,8 +29,5 @@ int binary_tree_balance(const binary_tree_t *tree)
 		return (0);
 	left = size(tree->left);
 	right = size(tree->left);
-	if (left - right == 1 || left - right == 0 || left - right == -1)
-		return (1);
-	else
-		return (0);
+	return (left - right);
 }
