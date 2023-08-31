@@ -1,20 +1,21 @@
 #include "binary_trees.h"
 /**
- * size - fund size of the tree
+ * height - fund size of the tree
  *
  * @tree: tree root pointer
  * Return: int size of the tree
  */
-int size(const binary_tree_t *tree)
+int height(const binary_tree_t *tree)
 {
-	int size;
+	size_t left, right;
 
 	if (!tree)
 		return (0);
-	size = binary_tree_balance(tree->left);
-	size += binary_tree_balance(tree->left);
-	return (size + 1);
+	right = height(tree->right);
+	left = height(tree->left);
+	return (left > right ? left + 1 : right + 1);
 }
+
 /**
  * binary_tree_balance - check if it is balanced
  *
@@ -23,11 +24,11 @@ int size(const binary_tree_t *tree)
  */
 int binary_tree_balance(const binary_tree_t *tree)
 {
-	int left, right;
+	size_t left, right;
 
 	if (!tree)
 		return (0);
-	left = size(tree->left);
-	right = size(tree->left);
+	left = height(tree->left);
+	right = height(tree->right);
 	return (left - right);
 }
