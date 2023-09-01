@@ -19,8 +19,9 @@ struct binary_tree_s
 	struct binary_tree_s *right;
 };
 typedef struct binary_tree_s binary_tree_t;
-binary_tree_t *binary_trees_ancestor(const binary_tree_t *first, const binary_tree_t *second);
-
+binary_tree_t *binary_trees_ancestor(
+	const binary_tree_t *first, const binary_tree_t *second);
+void binary_tree_levelorder(const binary_tree_t *tree, void (*func)(int));
 
 size_t binary_tree_height(const binary_tree_t *tree);
 size_t binary_tree_depth(const binary_tree_t *tree);
