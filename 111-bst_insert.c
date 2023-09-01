@@ -3,10 +3,10 @@
  * bst_insert - func
  *
  * @tree: parameter
- * @value: parameter
+ * @n: parameter
  * Return: bst_t*
  */
-bst_t *bst_insert(bst_t **tree, int value)
+bst_t *bst_insert(bst_t **tree, int n)
 {
 	if (*tree == NULL)
 	{
@@ -15,19 +15,19 @@ bst_t *bst_insert(bst_t **tree, int value)
 		{
 			return (NULL);
 		}
-		(*tree)->value = value;
+		(*tree)->n = n;
 		(*tree)->left = NULL;
 		(*tree)->right = NULL;
 		return (*tree);
 	}
 
-	if (value < (*tree)->value)
+	if (n < (*tree)->n)
 	{
-		return (bst_insert(&(*tree)->left, value));
+		return (bst_insert(&(*tree)->left, n));
 	}
-	else if (value > (*tree)->value)
+	else if (n > (*tree)->n)
 	{
-		return (bst_insert(&(*tree)->right, value));
+		return (bst_insert(&(*tree)->right, n));
 	}
 
 	return (*tree);
