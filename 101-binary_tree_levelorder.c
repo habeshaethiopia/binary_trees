@@ -27,4 +27,5 @@ void binary_tree_levelorder(const binary_tree_t *tree, void (*func)(int))
 		if (curr->right)
 			store[tale++] = curr->right;
 	}
+	free(store);
 }
