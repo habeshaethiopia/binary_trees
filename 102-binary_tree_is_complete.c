@@ -15,8 +15,11 @@ size_t have_place(const binary_tree_t *tree)
 	place = have_place(tree->left);
 	place += have_place(tree->right);
 	return (!((tree->left && tree->right) ||
-			  (!tree->left && !tree->right) || (!tree->left->left && !tree->left->right
-			  && !tree->right->left && !tree->right->right))
+					  (!tree->left && !tree->right) ||
+					  (!tree->left && !tree->right)
+				  ? ((!tree->left->left || !tree->left->right) &&
+				   (!tree->right->left || !tree->right->right))
+				  : 0;)
 				? place + 1
 				: place);
 }
